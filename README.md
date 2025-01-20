@@ -30,6 +30,8 @@ Mise à jour des votes : Les utilisateurs peuvent accepter ou rejeter une propos
 #Deuxième cas : Validation des Modifications
 
 Ce cas ci se passe en deux phases:
+
+
 A) Les votes
 Un utilisateur connecté à la possiblité de confirmer ou de rejeter une demande de modification ou une nouvelle relation.
 
