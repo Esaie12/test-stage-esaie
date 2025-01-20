@@ -53,7 +53,7 @@ class PersonController extends Controller
             'relation'=>['required','string','min:2'],
             'invitation'=>['nullable'],
         ]);
-        //try {
+       // try {
 
             // Formatage des données avant création
             $newPerson = Person::create([
@@ -95,7 +95,7 @@ class PersonController extends Controller
             }
 
             return redirect()->route('index')->with('success',"Nouvelle personne ajoutée avec succès");
-       /* } catch (\Exception $e) {
+        /*} catch (\Exception $e) {
             return redirect()->route('index')->with('error',"Une erreurest subvenue. Veuillez réessayer");
         }*/
     }
@@ -202,6 +202,8 @@ class PersonController extends Controller
 
     /** Aller sur la page d'inscription */
     public function register_invitation($code){
+        return view('auth.register-invitation',compact('code'));
+
         $verify = Invitation::where('code',$code)->whereNull('validated_at')->first();
         if($verify){
             return view('auth.register-invitation',compact('code'));

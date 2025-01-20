@@ -17,11 +17,19 @@
     </div>
     @endif
 
-    <b>Les mis en relation</b>
-    <div class="row">
+    <div class="d-flex justify-content-end">
+        <a href="#misenrelation" class="mr-3" >Mises en relation</a>
+        <a href="#invitation" >Les invitations</a>
+    </div>
+
+    <div class="row" id="misenrelation" >
+        <div class="col-lg-12">
+            <h3 class="text-primary" >Les mises en relation</h3>
+        </div>
+
         <div class="col-md-12">
             <div class="table-responsive">
-                <table  class="table ">
+                <table  class="table" id="myTable" >
                     <thead>
                         <tr>
                             <th scope="col">Type</th>
@@ -88,11 +96,15 @@
         </div>
     </div>
 
-    <b>Mes invitations en attente</b>
-    <div class="row">
-        <div class="col-md-12">
+
+    <div class="row mt-4" id="invitation" >
+        <div class="col-lg-12">
+            <h3  class="text-primary">Mes invitations en attente</h3>
+        </div>
+
+        <div class="col-md-12 mt-2">
             <div class="table-responsive">
-                <table  class="table ">
+                <table  class="table" id="myTable2">
                     <thead>
                         <tr>
                             <th scope="col">Personne</th>
@@ -124,5 +136,15 @@
 
         </div>
     </div>
+
+
+    @push('scripts')
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+            $('#myTable2').DataTable();
+        });
+    </script>
+    @endpush
 
 </x-app-layout>

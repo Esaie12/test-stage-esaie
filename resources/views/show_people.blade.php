@@ -42,15 +42,15 @@
 
         <div class="col-md-8">
             <div class="row">
-                <div class="col-lg-12"> <h4>Les parents</h4> </div>
+                <div class="col-lg-12"> <h4 class="text-primary" >Les parents</h4> </div>
                 <div class="col-lg-12">
                     <div  class="table-responsive" >
-                        <table class="table" >
+                        <table class="table" id="myTable">
                             <thead>
                                 <tr>
-                                    <th scope="col">Column 1</th>
-                                    <th scope="col">Column 2</th>
-                                    <th scope="col">Column 3</th>
+                                    <th scope="col">Nom & Prénoms</th>
+                                    <th scope="col">Date d'anniversaire</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,16 +74,16 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-lg-12"> <h4>Les enfants</h4> </div>
+            <div class="row mt-3">
+                <div class="col-lg-12"> <h4 class="text-primary" >Les enfants</h4> </div>
                 <div class="col-lg-12">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table" id="myTable2" >
                             <thead>
                                 <tr>
-                                    <th scope="col">Column 1</th>
-                                    <th scope="col">Column 2</th>
-                                    <th scope="col">Column 3</th>
+                                    <th scope="col">Nom & Prénoms</th>
+                                    <th scope="col">Date d'anniversaire</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -164,5 +164,15 @@
         </div>
         @endforeach
     @endif
+
+
+    @push('scripts')
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+            $('#myTable2').DataTable();
+        });
+    </script>
+    @endpush
 
 </x-app-layout>

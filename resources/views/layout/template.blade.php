@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Exemple avec Bootstrap et jQuery</title>
+    <title>{{$title ?? "Généalogie"}}</title>
 
     <!-- Intégration de Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 
-    <!-- Intégration de jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
-    <!-- Intégration de Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+
 </head>
 
 <style>
@@ -93,6 +93,38 @@
     <footer class="bg-dark text-white text-center py-3 mt-5">
         <p>&copy; 2025 Généalogie. Tous droits réservés.</p>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+    @stack('scripts')
+
+
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "timeOut": "5000",
+        };
+    </script>
+
+    @if(Session::has('success'))
+    <script>
+        var message = "{{Session::get('success')}}";
+        toastr.success(message, 'Succès');
+    </script>
+    @endif
+
+    @if(Session::has('error'))
+    <script>
+        var message = "{{Session::get('error')}}";
+        toastr.error(message, 'Succès');
+    </script>
+    @endif
 
 </body>
 </html>

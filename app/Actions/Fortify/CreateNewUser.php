@@ -21,15 +21,17 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
+
         if(isset($input['code'])){
             Validator::make($input, [
+                'code'=>['required','exists:invitations,code'],
                 'pseudo' => [
                     'required',
                     'string',
                     'max:255',
                     Rule::unique(User::class),
                 ],
-                'code'=>['required','exists:invitations,code'],
+
                 'password' => ['required','string','min:6'],
             ])->validate();
         }else{

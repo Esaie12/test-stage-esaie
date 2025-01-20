@@ -2,6 +2,7 @@
     <x-slot name="index" >
         active
     </x-slot>
+
     @if(Session::has('success'))
     <div  class="alert alert-success" role="alert" >
         <strong>{{Session::get('success')}}</strong>
@@ -15,9 +16,12 @@
     @endif
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-lg-12">
+            <h3 class="text-primary" >Liste des utilisateurs</h3>
+        </div>
+        <div class="col-md-12 mt-3">
             <div class="table-responsive">
-                <table  class="table ">
+                <table  class="table" id="myTable">
                     <thead>
                         <tr>
                             <th scope="col">Personne</th>
@@ -43,5 +47,13 @@
             </div>
         </div>
     </div>
+
+    @push('scripts')
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+    @endpush
 
 </x-app-layout>
