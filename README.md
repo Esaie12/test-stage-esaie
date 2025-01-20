@@ -1,5 +1,7 @@
 
 Explication des données
+
+
 #Cas 0 :
 Je suis OMIYALE Esaie, étudiant en troisième année de licence informatique parcours MIAGE ( Méthode Informatique
 Appliquée à la Gestion) à l'université de Rennes.
