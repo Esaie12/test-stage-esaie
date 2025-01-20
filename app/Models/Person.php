@@ -41,12 +41,12 @@ class Person extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class, 'created_by');  // Lien vers l'utilisateur-créateur
+        return $this->belongsTo(User::class, 'created_by');
     }
 
     public function person()
     {
-        return $this->hasOne(Person::class, 'person_id');  // Lien vers l'utilisateur-créateur
+        return $this->hasOne(Person::class, 'person_id');
     }
 
     public function getDegreeWith($target_person_id)
